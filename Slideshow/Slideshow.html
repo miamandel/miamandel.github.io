@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="utf-8">
+        <title>SLIDESHOW</title>
+        <meta name="description" html="Image Slideshow">
+        <link href="https://fonts.googleapis.com/css?family=Cinzel&display=swap" rel="stylesheet">
+        <style>
+html {
+    background-color: lightgray;
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+
+img {
+    width: 20%;
+    display: inline-block;
+    margin-bottom: 2%;
+    border-radius: 20px;
+}
+
+h1 {
+    font-family: monospace;
+    font-size: 50px;
+    margin-bottom: -1.5%;
+}
+
+h2 {
+    font-family: monospace;
+    margin-bottom: 2%;
+}
+
+hr {
+    color: grey;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: 2%;
+}
+
+h2, h1{
+font-family: monospace;
+            }
+
+#html {
+    text-align: center;
+    margin-top: 4.5%;
+}
+
+#Bilder > .aussen {
+    opacity: 0.5;
+    width: 15%;
+}
+
+#Bilder > .mitteAussen {
+    opacity: 0.8;
+    width: 18%;
+}
+
+#Left {
+    width: 7%;
+    margin-right: 1%;
+    transition: filter 0.5s;
+}
+
+#Right {
+    width: 7%;
+    transition: filter 0.5s;
+}
+        </style>
+        
+        
+        
+        <script>
+            function Right() {
+    
+    var bilder = document.images[0].src;
+    var i;
+	
+    for (i = 0; i < 5; i++){
+        if (i == 4) {
+            document.images[4].src = bilder;
+        }
+                   
+        else { 
+            document.images[i].src = document.images[i + 1].src;
+        }
+    }
+}
+            
+function Left() {
+	
+    var bilder = document.images[4].src;
+    var i;
+	
+    for (i = 4; i >= 0; i--) {
+        if (i == 0) {
+            document.images[0].src = bilder;
+        }
+		   
+        else {
+            document.images[i].src = document.images[i - 1].src;
+        }
+    }
+}
+        </script>
+	</head>
+	<body>
+        
+        <div id="html">
+            <h1>MY PICTURES</h1>
+            <h2>MIA MANDEL</h2>
+            <hr>
+            <div id="Bilder">
+                <img class="aussen" src = "Bilder/20191006_141644.JPG">
+                <img class="mitteAussen" src="Bilder/20191006_122417.JPG">
+                <img id="Center" src="Bilder/20191001_190135.JPG">
+                <img class="mitteAussen" src="Bilder/20191001_190056.JPG">
+                <img class="aussen" src = "Bilder/20191006_124935.JPG">
+            </div>
+
+            <div id="Buttons">
+                <img id="Left" src="Bilder/Pfeil_links.png" onclick="JavaScript:Left()">
+                <img id="Right" src="Bilder/Pfeil_rechts.png" onclick="JavaScript:Right()">
+            </div>
+        </div>
+        
+    </body>
+</html>
